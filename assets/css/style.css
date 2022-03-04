@@ -13,3 +13,10 @@ body {
 	overflow: hidden;
 	margin: 0;
 }
+
+.game-wrapper {
+	border: 1px solid black;
+	width: 350px;
+	height: 350px;
+	margin: 100px;
+}

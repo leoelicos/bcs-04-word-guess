@@ -12,9 +12,9 @@ Click on [Word Guess](https://leoelicos.github.io/bcs-03-04-word-guess/). The Ap
 
 ## Screenshots
 
-### Password Generator
+### Word Guess
 
-![Screenshot of Word Guess](./images/deployed.jpg)
+![Screenshot of Word Guess](./assets/images/deployed.jpg)
 
 ## Credits
 
