@@ -14,9 +14,23 @@ body {
 	margin: 0;
 }
 
-.game-wrapper {
+.guess1 {
+	padding: 20px;
 	border: 1px solid black;
 	width: 350px;
-	height: 350px;
-	margin: 100px;
+	background-color: green;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+}
+.letter {
+	border: 1px solid red;
+	width: 10px;
+	flex-grow: 1;
+	font-family: Roboto;
+	font-size: 1.2rem;
+	text-align: center;
+	margin: 0;
+	padding: 0;
 }
