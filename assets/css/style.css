@@ -1,10 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Contrail+One&family=Limelight&family=Montserrat:wght@800&family=PT+Sans+Narrow:wght@700&display=swap');
 
 * {
+	margin: 0;
+	padding: 0;
 	box-sizing: border-box;
 }
 body {
-	font-family: 'Roboto', sans-serif;
+	background-color: hsl(25, 84%, 61%);
+	font-family: sans-serif;
+	font-size: 16px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -14,23 +18,210 @@ body {
 	margin: 0;
 }
 
-.guess1 {
-	padding: 20px;
-	border: 1px solid black;
+.logo img {
+	width: 100px;
+}
+h1 {
+	font-family: 'Limelight', cursive;
+	color: #ece47a;
+	font-size: 3.7rem;
+	margin: 0px 0;
+}
+
+.start-panel {
+	display: flex;
 	width: 350px;
-	background-color: green;
+	flex-flow: row nowrap;
+	height: 90px;
+	align-items: center;
+	justify-content: space-evenly;
+}
+
+.btn {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 1.1rem;
+	border-radius: 0.5rem;
+	border-color: #c2c2c2, rgb(133, 133, 133), rgb(133, 133, 133), rgb(133, 133, 133);
+	box-shadow: 0px 1px 3px #979797;
+	color: hsl(25, 84%, 61%);
+	background-color: #deebf7;
+
+	width: 10rem;
+	height: 2.8rem;
+	display: inline-block;
+}
+
+.alarm {
+	display: inline-block;
+	transform: rotateX(20deg) rotateY(10deg) rotateZ(2.9deg);
+	background-color: black;
+	color: hsl(0, 0%, 100%);
+	padding: 0.5rem;
+	animation: glow 3s;
+	border-radius: 0.6rem;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 2.5rem;
+	font-weight: bold;
+	border: 3px solid hsl(0, 0%, 100%);
+	box-shadow: 7px -6px 0px 0px #b9b6b6, 10px -6px 6px 2px #ece47a;
+}
+
+.game-wrapper {
+	background-color: #ece47a;
+	width: 100%;
+	height: 340px;
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+.tile-wrapper {
+	height: 100px;
+	width: 350px;
+	position: relative;
+}
+
+.tile {
+	width: 50px;
+	height: 50px;
+	padding: 2px;
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
-	width: 100%;
+	justify-content: center;
+
+	transform: rotate(-4deg);
+
+	border: 1px solid white;
+	color: white;
+
+	font-size: 2.5rem;
+	font-family: 'Montserrat', sans-serif;
 }
-.letter {
-	border: 1px solid red;
-	width: 10px;
-	flex-grow: 1;
-	font-family: Roboto;
-	font-size: 1.2rem;
+
+#tile1 {
+	position: absolute;
+	left: 45px;
+	top: 40px;
+	background-color: #a7b9f2;
+
+	box-shadow: -6px 6px 0px 7px #a7b9f2;
+}
+
+#tile2 {
+	position: absolute;
+	left: 114px;
+	bottom: 39px;
+	background-color: #f79a99;
+
+	box-shadow: -6px 6px 0px 7px #f79a99;
+}
+
+#tile3 {
+	position: absolute;
+	right: 114px;
+	top: 40px;
+	background-color: #77dd77;
+
+	box-shadow: -6px 6px 0px 7px #77dd77;
+}
+
+#tile4 {
+	position: absolute;
+	right: 45px;
+	top: 16px;
+	background-color: #ffc078;
+
+	box-shadow: -6px 6px 0px 7px #ffc078;
+}
+
+.dash {
+	height: 30px;
+	color: dodgerblue;
+	font-size: 4rem;
+}
+
+#dash1 {
+	position: absolute;
+	left: 64px;
+	bottom: 52px;
+	transform: rotate(-50deg);
+}
+#dash2 {
+	position: absolute;
+	left: 176px;
+	bottom: 49px;
+	transform: rotate(50deg);
+}
+#dash3 {
+	position: absolute;
+	right: 110px;
+	bottom: 49px;
+	transform: rotate(-50deg);
+}
+
+.display-wrapper {
+	display: flex;
+}
+
+input {
+	width: 310px;
+	height: 40px;
+	padding: 30px;
+	margin: 10px 0;
 	text-align: center;
-	margin: 0;
-	padding: 0;
+	border: none;
+	border-radius: 0.6rem;
+	font-size: 2.5rem;
+	font-family: 'Montserrat', sans-serif;
+
+	text-transform: uppercase;
+}
+
+input:active {
+	outline: none;
+}
+
+.tally {
+	font-family: 'PT Sans Narrow', sans-serif;
+	display: inline-block;
+	margin: 2px;
+	font-size: 1.8rem;
+	padding: 2px 3px;
+	width: 140px;
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	background-color: black;
+}
+
+.wins {
+	flex: 1 0 10px;
+	background-color: white;
+	padding: 0 1px;
+	color: green;
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	border: 1px solid lightgray;
+}
+
+.losses {
+	flex: 1 0 10px;
+	background-color: white;
+	padding: 0 1px;
+	color: red;
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	border: 1px solid lightgray;
+}
+
+.footer-panel {
+	display: flex;
+	width: 350px;
+	flex-flow: row nowrap;
+	height: 90px;
+	align-items: center;
+	justify-content: space-evenly;
 }

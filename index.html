@@ -4,22 +4,47 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="./assets/css/style.css" />
-		<title>Word Guess</title>
+		<title>Kiddle</title>
 	</head>
 	<body>
-		<h1>Guess the word!</h1>
-		<div class="btn-wrapper">
-			<button class="btn">Click to start the game</button>
+		<!-- testing only -->
+		<div class="iphone13"></div>
+		<div class="logo">
+			<img src="./assets/images/elephantOrange.png" alt="elephant logo" />
 		</div>
-		<div class="timer">1:00 left</div>
-		<div class="guess-wrapper">
-			<div class="guess1">
-				<span class="letter letter1">_</span>
-				<span class="letter letter2">_</span>
-				<span class="letter letter3">_</span>
-				<span class="letter letter4">_</span>
-				<span class="letter letter5">_</span>
+		<h1>KIDDLE</h1>
+
+		<div class="start-panel">
+			<button class="btn" id="button-start-games">Start Game</button>
+			<div class="alarm">0:24</div>
+		</div>
+
+		<div class="game-wrapper">
+			<div class="tile-wrapper">
+				<div class="tile" id="tile4">D</div>
+				<div class="dash" id="dash3">–</div>
+				<div class="tile" id="tile3">R</div>
+				<div class="dash" id="dash2">–</div>
+				<div class="tile" id="tile2">O</div>
+				<div class="dash" id="dash1">–</div>
+				<div class="tile" id="tile1">W</div>
 			</div>
+
+			<input type="text" name="" id="" placeholder="|" />
+			<button class="btn" id="button-reset-games">Submit</button>
+
+			<div class="tally" id="button-help">
+				<div class="wins">0</div>
+				<div class="wins">0</div>
+				-
+				<div class="losses">0</div>
+				<div class="losses">0</div>
+			</div>
+		</div>
+
+		<div class="footer-panel">
+			<button class="btn" id="button-reset-games">Reset Games</button>
+			<button class="btn" id="button-help">Help</button>
 		</div>
 
 		<script src="./assets/scripts/script.js"></script>
