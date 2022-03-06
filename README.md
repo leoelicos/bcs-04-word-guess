@@ -8,7 +8,7 @@ Guess the word! This game is super fun to play. I created this game to illustrat
 
 ## Usage
 
-Click on [Word Guess](https://leoelicos.github.io/bcs-03-04-word-guess/). The App will run on any browser.
+Click on [Word Guess](https://leoelicos.github.io/bcs-04-word-guess/). The App will run on any browser.
 
 ## Screenshots
 
