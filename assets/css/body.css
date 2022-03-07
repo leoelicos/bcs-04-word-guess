@@ -40,9 +40,15 @@ header {
 	border-radius: 0 0 1rem 1rem;
 
 	display: flex;
-	flex-flow: column wrap;
+	flex-flow: column;
 	align-items: center;
 	justify-content: center;
+}
+
+@media screen and (max-height: 800px) {
+	header {
+		flex-direction: row;
+	}
 }
 
 main {
@@ -92,5 +98,5 @@ button {
 .tile-wrapper,
 .display-wrapper,
 .start-wrapper {
-	margin: 0.6rem 0;
+	margin: 0.2rem 0;
 }
