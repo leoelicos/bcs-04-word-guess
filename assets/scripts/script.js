@@ -60,9 +60,9 @@ var i = 0;
 var found = [false, false, false, false];
 
 // user clicks start
-document.getElementById('button-start-games').addEventListener('click', () => {
+document.getElementById('button-start-games').addEventListener('click', (e) => {
+	e.preventDefault();
 	document.getElementById('button-start-games').innerHTML = 'Quick! Guess the letters!';
-
 	// reset everything
 	solutionWord = '';
 	finished = false;

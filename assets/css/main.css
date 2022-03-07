@@ -68,68 +68,35 @@ a.tile:hover {
 	left: 15%;
 	bottom: 15%;
 	background-color: #a7b9f2;
+	transform: translate3d(0, 0, 0) rotate(-4deg);
 	z-index: 5;
-
-	transform: rotate(-4deg);
 }
-
-/* #dash1 {
-	position: absolute;
-	left: 64px;
-	bottom: 52px;
-	-webkit-transform: rotate(-50deg);
-	-ms-transform: rotate(-50deg);
-	-o-transform: rotate(-50deg);
-	transform: rotate(-50deg);
-	z-index: 6;
-} */
 
 #tile1 {
 	position: absolute;
 	left: 33%;
 	top: 20%;
 	background-color: #f79a99;
+	transform: translate3d(0, 0, 0) rotate(4deg);
 	z-index: 5;
-
-	transform: rotate(4deg);
 }
-/* #dash2 {
-	position: absolute;
-	left: 176px;
-	bottom: 49px;
-	-webkit-transform: rotate(50deg);
-	-ms-transform: rotate(50deg);
-	-o-transform: rotate(50deg);
-	transform: rotate(50deg);
-	z-index: 4;
-} */
+
 #tile2 {
 	position: absolute;
 	right: 33%;
 	top: 40%;
 	background-color: #77dd77;
+	transform: translate3d(0, 0, 0) rotate(-4deg);
 	z-index: 3;
-
-	transform: rotate(-4deg);
 }
-/* #dash3 {
-	position: absolute;
-	right: 110px;
-	bottom: 49px;
-	-webkit-transform: rotate(-50deg);
-	-ms-transform: rotate(-50deg);
-	-o-transform: rotate(-50deg);
-	transform: rotate(-50deg);
-	z-index: 2;
-} */
+
 #tile3 {
 	position: absolute;
 	right: 15%;
 	top: 20%;
 	background-color: #ffc078;
+	transform: translate3d(0, 0, 0) rotate(4deg);
 	z-index: 1;
-
-	transform: rotate(4deg);
 }
 
 .display-wrapper {
