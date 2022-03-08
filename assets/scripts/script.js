@@ -73,7 +73,7 @@ document.getElementById('button-start-games').addEventListener('click', (e) => {
 
 // detect user keypress (letter)
 document.addEventListener('keyup', (e) => {
-	var keypress = e.key;
+	var keypress = e.key.toLowerCase();
 
 	if (finished === false && keypress.length == 1 && lettersPattern.test(e.key) && solutionWord.includes(keypress) && !allFound()) {
 		for (i = 0; i < solutionWord.length; i++) {
