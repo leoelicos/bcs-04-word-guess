@@ -15,7 +15,6 @@ var solutionWord = '';
 var time = 60;
 var finished = true;
 var alarm = document.getElementById('secondsLeft');
-var blanks = 4;
 var totalWins = 0;
 var totalLosses = 0;
 
@@ -27,7 +26,6 @@ const chooseWord = () => {
 	// choose random item from words array
 	let randomItem = Math.floor(Math.random() * (words.length - 1)) + 1;
 	solutionWord = words[randomItem].toLowerCase();
-	console.log('solution word = ' + solutionWord);
 };
 
 // timer that starts at 10000 and clears at 0 or when the game is won
@@ -42,14 +40,12 @@ function runTimer() {
 				// lost
 				totalLosses++;
 				document.getElementById('tally-losses-value').innerHTML = totalLosses;
-				console.log('you lost');
 				document.getElementById('button-start-games').innerHTML = 'Oh no! Word was ' + solutionWord + '. Start again?';
 
 				finished = true;
 			}
 		} else {
 			time -= 1000;
-			console.log(time / 1000 + ' seconds');
 			alarm.innerHTML = String(time / 1000).padStart(2, '0');
 		}
 	}, 1000);
@@ -66,7 +62,6 @@ document.getElementById('button-start-games').addEventListener('click', (e) => {
 	// reset everything
 	solutionWord = '';
 	finished = false;
-	blanks = 4;
 	for (var i = 0; i < 4; i++) {
 		document.getElementById('tile' + i).innerHTML = '_';
 		found[i] = false;
@@ -79,7 +74,6 @@ document.getElementById('button-start-games').addEventListener('click', (e) => {
 // detect user keypress (letter)
 document.addEventListener('keyup', (e) => {
 	var keypress = e.key;
-	console.log('Pressed ' + keypress);
 
 	if (finished === false && keypress.length == 1 && lettersPattern.test(e.key) && solutionWord.includes(keypress) && !allFound()) {
 		for (i = 0; i < solutionWord.length; i++) {
@@ -94,7 +88,6 @@ document.addEventListener('keyup', (e) => {
 					document.getElementById('tally-wins-value').innerHTML = totalWins;
 
 					//  flash a win message
-					console.log('You won! Time left: ' + time / 1000 + ' seconds');
 					document.getElementById('button-start-games').innerHTML = 'You win! Start again?';
 
 					time = 0;
@@ -127,11 +120,9 @@ function updateTally() {
 document.getElementById('button-help').addEventListener('click', function () {
 	document.getElementById('modal').classList.add('show');
 	document.getElementById('modal').classList.remove('hide');
-	console.log('trying to open modal');
 });
 
 document.getElementById('closeModal').addEventListener('click', function () {
 	document.getElementById('modal').classList.add('hide');
 	document.getElementById('modal').classList.remove('show');
-	console.log('trying to close modal');
 });
