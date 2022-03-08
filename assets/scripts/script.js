@@ -12,11 +12,14 @@ let words = ['able', 'acid', 'aged', 'also', 'area', 'army', 'away', 'baby', 'ba
 
 var lettersPattern = /[A-Za-z]/;
 var solutionWord = '';
-var time = 60;
+var time = 10000;
 var finished = true;
 var alarm = document.getElementById('secondsLeft');
 var totalWins = 0;
 var totalLosses = 0;
+var i = 0;
+var found = [false, false, false, false];
+var timer;
 
 // update totalWins and totalLosses with local storage values
 updateTally();
@@ -28,47 +31,58 @@ const chooseWord = () => {
 	solutionWord = words[randomItem].toLowerCase();
 };
 
-// timer that starts at 10000 and clears at 0 or when the game is won
-function runTimer() {
-	time = 10000;
+function updateAlarm() {
 	alarm.innerHTML = String(time / 1000).padStart(2, '0');
-	const timer = setInterval(() => {
+}
+
+// timer that starts at 10000 and clears at 0 or when the game is won
+function startTimer() {
+	finished = false;
+
+	alarm.innerHTML = String(time / 1000).padStart(2, '0');
+
+	timer = setInterval(() => {
+		// timer has reached zero
 		if (time === 0) {
 			clearInterval(timer);
 
 			if (finished === false) {
-				// lost
+				// lost the game
+				// update tally on the screen
 				totalLosses++;
 				document.getElementById('tally-losses-value').innerHTML = totalLosses;
+				//  update start button text
 				document.getElementById('button-start-games').innerHTML = 'Oh no! Word was ' + solutionWord + '. Start again?';
 
 				finished = true;
 			}
 		} else {
 			time -= 1000;
-			alarm.innerHTML = String(time / 1000).padStart(2, '0');
+			// update alarm text
+			updateAlarm();
 		}
 	}, 1000);
-	return timer;
 }
-var i = 0;
 
-var found = [false, false, false, false];
-
-// user clicks start
-document.getElementById('button-start-games').addEventListener('click', (e) => {
-	e.preventDefault();
-	document.getElementById('button-start-games').innerHTML = 'Quick! Guess the letters!';
-	// reset everything
-	solutionWord = '';
+function resetGame() {
+	time = 10000;
 	finished = false;
+	chooseWord();
 	for (var i = 0; i < 4; i++) {
 		document.getElementById('tile' + i).innerHTML = '_';
 		found[i] = false;
 	}
+}
 
-	runTimer();
-	chooseWord();
+// user clicks start
+document.getElementById('button-start-games').addEventListener('click', (e) => {
+	e.preventDefault();
+
+	if (finished === true) {
+		document.getElementById('button-start-games').innerHTML = 'Quick! Guess the letters!';
+		resetGame();
+		startTimer();
+	}
 });
 
 // detect user keypress (letter)
@@ -80,17 +94,21 @@ document.addEventListener('keyup', (e) => {
 			if (solutionWord[i] === keypress) {
 				// update tiles if true
 				document.getElementById('tile' + i).innerHTML = keypress;
+
+				// update found array
 				found[i] = true;
+
 				// if all tiles revealed, win
 				if (allFound() && time >= 0) {
 					finished = true;
 					totalWins++;
+					// stop the clock
+					clearInterval(timer);
+					// update tally
 					document.getElementById('tally-wins-value').innerHTML = totalWins;
 
 					//  flash a win message
 					document.getElementById('button-start-games').innerHTML = 'You win! Start again?';
-
-					time = 0;
 				}
 			}
 		}
