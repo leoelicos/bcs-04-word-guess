@@ -1,5 +1,3 @@
-// Finished App on 2022/03/08
-
 // get the viewport height and multiply by 1% to get vh unit
 // set --vh custom property to CSS
 // this allows the app to render correctly on mobile devices
