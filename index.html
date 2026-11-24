@@ -1,65 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Kiddle</title>
+  <link rel="icon" href="assets/images/elephantOrange.png" type="image/png" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <div class="logo">
+        <img src="assets/images/elephantOrange.png" alt="Kiddle elephant" />
+      </div>
+      <h1>Kiddle</h1>
+      <div class="timer" id="timer">10</div>
+    </header>
 
-		<link rel="stylesheet" href="./assets/css/body.css" />
-		<link rel="stylesheet" href="./assets/css/header.css" />
-		<link rel="stylesheet" href="./assets/css/main.css" />
-		<link rel="stylesheet" href="./assets/css/footer.css" />
+    <main class="main">
+      <div class="tiles" id="tiles"></div>
 
-		<link rel="shortcut icon" href="./assets/images/elephantOrange.png" type="image/x-icon" />
-		<title>Kiddle</title>
-	</head>
-	<body>
-		<header>
-			<div class="logo">
-				<img src="./assets/images/elephantOrange.png" alt="elephant logo" />
-			</div>
-			<div>
-				<h1>KIDDLE</h1>
-			</div>
-		</header>
+      <div class="status" id="status">Tap Start to play</div>
 
-		<main>
-			<section class="alarm-wrapper">
-				<div class="alarm">0:<span id="secondsLeft">10</span></div>
-			</section>
-			<div class="tile-wrapper">
-				<div class="tile" id="tile0">_</div>
-				<div class="tile" id="tile1">_</div>
-				<div class="tile" id="tile2">_</div>
-				<div class="tile" id="tile3">_</div>
-			</div>
-			<section class="start-wrapper">
-				<button class="btn" id="button-start-games">Start</button>
-			</section>
-		</main>
+      <button class="btn primary" id="startBtn">Start</button>
+    </main>
 
-		<footer>
-			<section class="tally">
-				<button id="button-tally-wins">
-					<div id="tally-wins-label">Wins:&nbsp;</div>
-					<div id="tally-wins-value">0</div>
-				</button>
+    <div class="keyboard" id="keyboard"></div>
 
-				<button id="button-tally-losses">
-					<div id="tally-losses-label">Losses:&nbsp;</div>
-					<div id="tally-losses-value">0</div>
-				</button>
-			</section>
-			<div id="modal" class="hide">
-				<button id="closeModal">X</button>
-				<p>Click start to play. Type the letters to guess the word before the timer hits 0!</p>
-			</div>
-			<section class="footer-buttons">
-				<button class="btn" id="button-reset-games">Reset</button>
-				<button class="btn" id="button-help">?</button>
-			</section>
-		</footer>
+    <footer class="footer">
+      <div class="stats">
+        <div class="stat"><span id="wins">0</span> wins</div>
+        <div class="stat"><span id="losses">0</span> losses</div>
+      </div>
+      <div class="actions">
+        <button class="btn" id="resetBtn">Reset</button>
+        <button class="btn" id="helpBtn">?</button>
+      </div>
+    </footer>
 
-		<script src="./assets/scripts/script.js"></script>
-	</body>
+    <div class="modal" id="modal">
+      <div class="modal-content">
+        <h2>How to play</h2>
+        <p>Guess the 4-letter word before the timer runs out.</p>
+        <p>Tap letters on the keyboard (or use your physical keyboard). Correct letters fill in.</p>
+        <p>Win by filling all tiles. Lose if time hits zero.</p>
+        <button class="btn primary" id="closeModal">Got it</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/scripts/script.js"></script>
+</body>
 </html>
