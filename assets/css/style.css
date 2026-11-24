@@ -1,0 +1,218 @@
+:root {
+  --bg: #0f172a;
+  --surface: #1e293b;
+  --text: #f8fafc;
+  --muted: #94a3b8;
+  --accent: #f59e0b;
+  --correct: #22c55e;
+  --wrong: #ef4444;
+  --tile: #334155;
+  --key: #475569;
+  --key-used: #334155;
+  --radius: 12px;
+  --shadow: 0 8px 24px rgba(0,0,0,0.3);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  overflow: hidden;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 12px;
+  gap: 12px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.logo img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--surface);
+  padding: 4px;
+}
+
+h1 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: var(--accent);
+}
+
+.timer {
+  font-size: 1.6rem;
+  font-weight: 700;
+  background: var(--surface);
+  padding: 6px 14px;
+  border-radius: 999px;
+  min-width: 64px;
+  text-align: center;
+}
+
+.timer.low { color: var(--wrong); animation: pulse 0.6s infinite; }
+
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.tiles {
+  display: flex;
+  gap: 10px;
+}
+
+.tile {
+  width: 64px;
+  height: 72px;
+  background: var(--tile);
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  box-shadow: var(--shadow);
+  transition: transform 0.15s, background 0.2s;
+}
+
+.tile.filled {
+  background: var(--correct);
+  color: #052e16;
+  transform: scale(1.05);
+}
+
+.status {
+  font-size: 1.1rem;
+  color: var(--muted);
+  text-align: center;
+  min-height: 1.4em;
+}
+
+.btn {
+  background: var(--surface);
+  color: var(--text);
+  border: none;
+  padding: 12px 20px;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.1s, background 0.2s;
+}
+
+.btn:active { transform: scale(0.97); }
+
+.btn.primary {
+  background: var(--accent);
+  color: #1a1205;
+  font-size: 1.15rem;
+  padding: 14px 32px;
+}
+
+.keyboard {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-bottom: 8px;
+}
+
+.key-row {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
+
+.key {
+  min-width: 36px;
+  height: 48px;
+  background: var(--key);
+  border: none;
+  border-radius: 8px;
+  color: var(--text);
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s;
+}
+
+.key:active { transform: scale(0.95); }
+
+.key.used { background: var(--key-used); color: var(--muted); }
+
+.key.correct { background: var(--correct); color: #052e16; }
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.stats {
+  display: flex;
+  gap: 16px;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.stats span { font-weight: 700; color: var(--text); }
+
+.actions { display: flex; gap: 8px; }
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.modal.show { display: flex; }
+
+.modal-content {
+  background: var(--surface);
+  padding: 24px;
+  border-radius: 16px;
+  max-width: 340px;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+
+.modal-content h2 { margin-bottom: 12px; color: var(--accent); }
+
+.modal-content p { margin: 8px 0; color: var(--muted); line-height: 1.4; }
+
+.modal-content .btn { margin-top: 16px; width: 100%; }
+
+@keyframes pulse {
+  50% { transform: scale(1.08); }
+}
+
+@media (max-width: 380px) {
+  .tile { width: 54px; height: 62px; font-size: 1.7rem; }
+  .key { min-width: 30px; height: 44px; font-size: 1rem; }
+}
