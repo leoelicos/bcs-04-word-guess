@@ -1,29 +1,34 @@
-# Word Guess
+# Kiddle
+
+Modern, fun, mobile-playable timed letter-guessing game (originally BCS Word Guess).
 
 ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white) ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 
-## Description
+## Play
 
-Guess the word! This game is super fun to play. I created this game to illustrate the importance of APIs.
+Live on GitHub Pages: [https://leoelicos.github.io/bcs-04-word-guess/](https://leoelicos.github.io/bcs-04-word-guess/)
 
-## Usage
+## Features
 
-Click on [Word Guess](https://leoelicos.github.io/bcs-04-word-guess/). The App will run on any browser.
+- Timed 4-letter word guessing
+- Large on-screen keyboard (mobile-friendly)
+- Physical keyboard still works
+- Tile flip/pop animations
+- Wins & losses persisted in localStorage
+- Haptic feedback on supported devices
+- Dark, clean, responsive UI
 
-## Screenshots
+## How to play
 
-### Word Guess
+1. Tap **Start**
+2. Guess letters before the 10-second timer hits zero
+3. Correct letters fill the tiles
+4. Fill all four tiles to win
 
-![Screenshot of Word Guess](./assets/images/deployed.jpg)
+## Original
 
-## Credits
-
--  BCS Resources
+Started as a University of Sydney Coding Boot Camp project (BCS 04 / Word Guess), later called Kiddle.
 
 ## License
 
-&copy; Leo Wong <leoelicos@gmail.com>
-
-Licensed under the [MIT License](./LICENSE).
-
----
+MIT — © Leo Wong
